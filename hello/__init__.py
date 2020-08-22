@@ -1,6 +1,6 @@
 from flask import Flask
 from markupsafe import escape
-
+from flask import request
 
 def create_app():
 
@@ -33,4 +33,13 @@ def create_app():
     def shows_news():
         return "Today’s news is ..."
 
+    @app.route('/greeting')
+    def greeting():
+        name_value=request.args.get('name')
+        return 'Kia Ora ' + name_value
+
+
     return app
+
+
+
